@@ -1,3 +1,3 @@
-module github.com/tel23a-inf/aufgaben-rekursion
+module aufgaben-rekursion
 
 go 1.21.3
