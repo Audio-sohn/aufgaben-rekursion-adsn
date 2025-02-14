@@ -8,8 +8,8 @@ func Partition(list []int, key int) ([]int, []int) {
 	// wenn die liste leer ist, "leer" returnen und rekursion abreißen
 
 	// Verwende Kopien von list, damit die ursprüngliche Liste nicht verändert wird.
-	// l1 := append([]int{}, list...)
-	// l2 := append([]int{}, list...)
+	l1 := append([]int{}, list...)
+	l2 := append([]int{}, list...)
 
 	if Empty(list) {
 
