@@ -17,7 +17,22 @@ func FindSorted(list []int, x int) int {
 	// Rekursionsanker: wenn mittleres element == suchwert
 	if list[len(list)/2] == x {
 
+		return len(list) / 2
+
 	}
 
-	return -1
+	// Wenn x größer als die hälfte der liste, untere hälfte discarden
+	// und untere stellen auf den index aufsummieren
+
+	if list[len(list)/2] < x {
+
+		return len(list)/2 + FindSorted(list[len(list)/2:], x)
+
+	}
+
+	// Wenn x kleiner als die hälfte der liste, obere hälfte discarden
+	// nichts zum index hinzuzählen
+
+	return FindSorted(list[:len(list)/2], x)
+
 }
