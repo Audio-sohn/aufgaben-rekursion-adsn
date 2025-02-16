@@ -26,6 +26,6 @@ func RemoveElement(list []int, pos int) []int {
 
 	// wenn liste nicht empty und position nicht abgelaufen, in nächste runde gehen
 	// bei nächstem call dann erstes element "wegfressen" und position dekrementieren
-	return append(list[:1], RemoveElement(list[1:], pos-1)...)
+	return append([]int{list[0]}, RemoveElement(list[1:], pos-1)...)
 
 }
