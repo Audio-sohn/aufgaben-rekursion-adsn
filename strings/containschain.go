@@ -38,3 +38,7 @@ func ContainsChain(s, symbol string, count int) bool {
 
 	return ContainsChain(s[1:], symbol, count+1)
 }
+
+// TODO
+
+// Test ist zwar ok, aber für containschain( "aaaaaaaabb", "b", 2) würde es nicht funktionieren....
