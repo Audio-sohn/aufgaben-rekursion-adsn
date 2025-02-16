@@ -6,9 +6,28 @@ package lists
 func FilterLess(list []int, key int) []int {
 	// Gehen Sie ähnlich wie bei Remove vor:
 	// Wenn die Liste leer ist, ist das Ergebnis die leere Liste.
+
+	if Empty(list) {
+
+		return list
+
+	}
+
 	// Wenn das erste Element größer als key ist, ist das Ergebnis die gefilterte Restliste.
+
+	if list[0] > key {
+
+		return FilterLess(list[1:], key)
+
+	}
+
 	// Wenn das erste Element kleiner oder gleich key ist, ist das Ergebnis das erste Element
 	// plus die gefilterte Restliste.
+	if list[0] < key {
+
+		return append([]int{list[0]}, FilterLess(list[1:], key)...)
+
+	}
 
 	// TODO
 	return list
@@ -19,5 +38,18 @@ func FilterLess(list []int, key int) []int {
 // Sie können die Hilfsfunktion Empty aus empty.go verwenden.
 func FilterGreater(list []int, key int) []int {
 	// TODO
-	return list
+
+	if Empty(list) {
+
+		return list
+
+	}
+
+	if list[0] < key {
+
+		return FilterGreater(list[1:], key)
+
+	}
+
+	return append([]int{list[0]}, FilterGreater(list[1:], key)...)
 }
