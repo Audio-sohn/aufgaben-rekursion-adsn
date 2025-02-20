@@ -3,36 +3,23 @@ package strings
 // Contains prüft, ob der String s die Sequenz seq enthält.
 func Contains(s, seq string) bool {
 
-	// Rekursionsanker: Wenn seq drained, true returnen
-	// kann nur passieren wenn seq in s auftaucht
+	// FALSCH: Immer volle sequenz vergleichen!
 
-	if seq == "" {
-
-		return true
-
-	}
-
-	// Rekursionsanker: Wenn s drained und seq nicht, false returnen
-	// kann an dieser stelle nur passieren wenn seq nicht autaucht
-
-	if s == "" {
+	// Rekursionsanker: Wenn s < seq , false returnen
+	if Length(s) < Length(seq) {
 
 		return false
 
 	}
 
-	// wenn erstes element von s UNGLEICH erstes element von seq
-	// weitermachen ohne erstes element von s
+	// Rekursionsanker: Wenn der Anfang von s mit seq übereinstimmt, true returnen
 
-	if s[0] != seq[0] {
+	if s[:Length(seq)] == seq {
 
-		return Contains(s[1:], seq)
+		return true
 
 	}
 
-	// wenn erstes element von s GLEICH erstes element von seq
-	// weiter machen ohne erstes element von s UND ohne erstes element von seq
-
-	return Contains(s[1:], seq[1:])
+	return Contains(s[1:], seq)
 
 }
